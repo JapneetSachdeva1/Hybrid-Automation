@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite" parallel="classes" thread-count="4">
+    <test verbose="2" preserve-order="true"
+          name="/Users/japneetsachdeva/Desktop/projects/webdriver_restassured/UI_API_Automation">
+        <classes>
+
+            <class name="ui.tests.regression.CheckoutFlowTest">
+                <methods>
+                    <include name="checkoutFlowUITest"/>
+                </methods>
+            </class>
+            <class name="ui.tests.regression.ContactTest">
+                <methods>
+                    <include name="testUserContact"/>
+                </methods>
+            </class>
+            <class name="ui.tests.regression.ProductDiscoveryTest">
+                <methods>
+                    <include name="searchForProductWithSpecialCharacters"/>
+                </methods>
+            </class>
+            <class name="ui.tests.smoke.LoginTest">
+                <methods>
+                    <include name="testValidUserLogin"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

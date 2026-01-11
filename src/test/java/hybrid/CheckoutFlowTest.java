@@ -1,5 +1,7 @@
 package hybrid;
 
+import org.testng.annotations.Test;
+
 public class CheckoutFlowTest
 {
     /*
@@ -11,6 +13,7 @@ UI: Fill payment form and submit (5s)
 UI: Verify order confirmation (2s)
 Total: 11.5s vs 25s pure UI
      */
+
 
 
 }

@@ -1,0 +1,15 @@
+{
+  "first_name": "PlaceHolder_Fname",
+  "last_name": "PlaceHolder_Lname",
+  "dob": "1992-05-15",
+  "phone": "12025550174",
+  "email": "PlaceHolder_Email",
+  "password": "PlaceHolder_Password",
+  "address": {
+    "street": "123 Automation Lane",
+    "city": "New York",
+    "state": "New York",
+    "country": "US",
+    "postal_code": "10001"
+  }
+}
