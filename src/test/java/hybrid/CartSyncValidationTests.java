@@ -10,6 +10,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -112,18 +113,23 @@ Total: 7s vs 18s pure UI
 
         //injecting token in browser session now
         driver = new ChromeDriver();
-        driver.manage().window().maximize();
+        //driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.get("https://practicesoftwaretesting.com/checkout");
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.localStorage.setItem('auth-token', '"+token+"');");
-        js.executeScript("window.sessionStorage.setItem('cart_id', '01kebv0sa5kcfxyh8dv41g0kff');");
+        js.executeScript("window.sessionStorage.setItem('cart_id', '01keeyz28bed0me1j77r85hmyp');");
         js.executeScript("window.sessionStorage.setItem('cart_quantity', '1');");
         driver.navigate().refresh();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
         // add item to cart using API
         String addToCartRequestBody = """
                 {
-                    "product_id": "01KEBTYP6QXGVYY2A3H6DN02BJ",
+                    "product_id": "01keeyz28bed0me1j77r85hmyp",
                     "quantity": 1
                 }
                 """;
@@ -132,7 +138,7 @@ Total: 7s vs 18s pure UI
         given().spec(requestSpec)
                 .body(addToCartRequestBody)
                 .header("Authorization",tokenAuth)
-                .when().post("carts/01kebv0sa5kcfxyh8dv41g0kff")
+                .when().post("carts/01keeyz28bed0me1j77r85hmyp")
                 .then().log().all();
         driver.navigate().refresh();
         ////span[@data-test='cart-quantity']
@@ -156,6 +162,12 @@ Total: 7s vs 18s pure UI
                 .header("Authorization",tokenAuth)
                 .when().post("carts/01kebv0sa5kcfxyh8dv41g0kff")
                         .then().log().all();
+    }
+
+    @AfterClass
+    public void tearDown()
+    {
+        driver.quit();
     }
 
 }

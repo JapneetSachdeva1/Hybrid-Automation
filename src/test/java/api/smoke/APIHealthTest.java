@@ -53,7 +53,7 @@ public class APIHealthTest
                 .response();
         jp = response.jsonPath();
         //System.out.println(response.asPrettyString());
-        Assert.assertEquals(jp.get("data[0].id"), "01KE9P9KJ1KR290CZQBXG0MT7P");
+        Assert.assertEquals(jp.get("data[0].id"), "01KECFJ3A8Z16E23YNBV12BAZN");
     }
 
     @Test

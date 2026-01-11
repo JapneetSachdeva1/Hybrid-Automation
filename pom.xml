@@ -42,11 +42,19 @@
       <artifactId>javafaker</artifactId>
       <version>1.0.2</version>
     </dependency>
+
       <dependency>
           <groupId>org.apache.maven.plugin-tools</groupId>
           <artifactId>maven-plugin-annotations</artifactId>
           <version>3.15.1</version>
       </dependency>
+
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>2.24.0</version>
+    </dependency>
+
   </dependencies>
   <build>
     <plugins>
